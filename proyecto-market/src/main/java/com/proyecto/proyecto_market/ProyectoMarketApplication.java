@@ -11,3 +11,6 @@ public class ProyectoMarketApplication {
 	}
 
 }
+
+
+//Spring crea un contenedor de aplicaciones en 3,168 segundos

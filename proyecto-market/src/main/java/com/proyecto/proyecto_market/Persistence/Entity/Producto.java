@@ -12,7 +12,7 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_product") //como cambiamos el nombre a como está en la tabla, toca especificar
+    @Column(name="id_producto") //como cambiamos el nombre a como está en la tabla, toca especificar
     private Integer idproducto;
 
     private String nombre;

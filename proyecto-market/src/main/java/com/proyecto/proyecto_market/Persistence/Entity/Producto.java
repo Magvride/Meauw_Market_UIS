@@ -7,8 +7,7 @@ import jakarta.persistence.*;
 //La notación entity le dará a entender a java que se comporta como una
 //clase que mapea una tabla en nuestra base de datos
 @Entity
-@Table(name="productos")
-
+@Table(name="productos") //nombre de la tabla que referencia la clase productos
 public class Producto {
 
     @Id

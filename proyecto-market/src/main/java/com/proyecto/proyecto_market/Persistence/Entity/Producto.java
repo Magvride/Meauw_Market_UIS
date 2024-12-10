@@ -36,12 +36,19 @@ public class Producto {
     private Categoria categoria;
 
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-    private Integer getIdproducto() {
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Integer getIdproducto() {
         return idproducto;
     }
 
-    private void setIdproducto(Integer idproducto) {
+    public void setIdproducto(Integer idproducto) {
         this.idproducto = idproducto;
     }
 
@@ -92,4 +99,6 @@ public class Producto {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+
 }

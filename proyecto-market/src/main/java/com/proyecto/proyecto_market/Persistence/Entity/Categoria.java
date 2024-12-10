@@ -3,6 +3,7 @@ package com.proyecto.proyecto_market.Persistence.Entity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -18,8 +19,15 @@ public class Categoria {
     private boolean estado;
 
     @OneToMany(mappedBy = "categoria")
-    private ArrayList<Producto> productos;
+    private List<Producto> productos;
 
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
 
     public int getIdCategoria() {
         return idCategoria;

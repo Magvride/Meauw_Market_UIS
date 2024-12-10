@@ -21,6 +21,21 @@ public class CompraProductoPK implements Serializable {
     private Producto producto;
 
 
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
 
     public Integer getIdCompra() {
         return idCompra;

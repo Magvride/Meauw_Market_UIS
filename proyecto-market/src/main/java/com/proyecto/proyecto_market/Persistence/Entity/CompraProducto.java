@@ -1,9 +1,6 @@
 package com.proyecto.proyecto_market.Persistence.Entity;
 
-import jakarta.persistence.Embedded;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="compras_producto")
@@ -15,6 +12,30 @@ public class CompraProducto {
     private Integer cantidad;
     private Double total;
     private Boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name="id_compra",insertable = false, updatable = false)
+    private Compra compra;
+
+    @ManyToOne
+    @JoinColumn(name="id_producto",insertable = false, updatable = false)
+    private Producto productos;
+
+    public Producto getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Producto productos) {
+        this.productos = productos;
+    }
+
+    public Compra getCompra() {
+        return compra;
+    }
+
+    public void setCompra(Compra compra) {
+        this.compra = compra;
+    }
 
     public CompraProductoPK getId() {
         return id;

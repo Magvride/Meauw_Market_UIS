@@ -11,14 +11,14 @@ import org.mapstruct.Mappings;
 public interface CategoryMapper {
 
     @Mappings({
-            @Mapping(source = "idCategoria", target = "categoryId")
-            @Mapping(source = "descripcion", target = "category")
+            @Mapping(source = "idCategoria", target = "categoryId"),
+            @Mapping(source = "descripcion", target = "category"),
             @Mapping(source = "estado", target = "active")
 
     })
     Category toCategory(Categoria categoria);
 
     @InheritInverseConfiguration//hace la operacion inversa
-    @Mapping(target= "productos",ignore = true)
+    @Mapping(target="productos",ignore = true)
     Categoria toCategoria(Category category);
 }

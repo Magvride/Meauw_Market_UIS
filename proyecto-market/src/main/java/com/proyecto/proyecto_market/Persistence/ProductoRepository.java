@@ -5,8 +5,10 @@ import com.proyecto.proyecto_market.Domain.Repository.ProductRepository;
 import com.proyecto.proyecto_market.Persistence.Crud.ProductoCrudRepository;
 import com.proyecto.proyecto_market.Persistence.Entity.Producto;
 import com.proyecto.proyecto_market.Persistence.Mapper.ProductMapper;
+import com.sun.crypto.provider.GCM;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +43,9 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Product save(Product product) {
-        Producto p= mapper.toProducto(product);
-        return mapper.toProduct((productoCrudRepository.save(p)));
+        Producto p = mapper.toProducto(product);
+        Producto savedProducto = productoCrudRepository.save(p);
+        return mapper.toProduct(savedProducto);
     }
 
 //----------------------------------------------------------------------------------------------
@@ -56,9 +59,10 @@ public class ProductoRepository implements ProductRepository {
 
 
     public Producto save(Producto producto){
-        return productoCrudRepository.save(producto);
 
     }
+
+
 
     public void delete(int idProducto){
 

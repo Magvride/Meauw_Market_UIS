@@ -1,5 +1,7 @@
 package com.proyecto.proyecto_market.Domain;
 
+import jakarta.persistence.Version;
+
 public class Product {
 
     private int productId;
@@ -9,6 +11,9 @@ public class Product {
     private int stock;
     private boolean active;
     private Category category;
+
+
+
 
 
     public int getProductId() {

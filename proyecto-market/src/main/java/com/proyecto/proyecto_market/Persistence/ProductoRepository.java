@@ -5,9 +5,10 @@ import com.proyecto.proyecto_market.Domain.Repository.ProductRepository;
 import com.proyecto.proyecto_market.Persistence.Crud.ProductoCrudRepository;
 import com.proyecto.proyecto_market.Persistence.Entity.Producto;
 import com.proyecto.proyecto_market.Persistence.Mapper.ProductMapper;
-import com.sun.crypto.provider.GCM;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ public class ProductoRepository implements ProductRepository {
     private ProductoCrudRepository productoCrudRepository;
     @Autowired
     private ProductMapper mapper;
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
 
     @Override
@@ -59,7 +63,18 @@ public class ProductoRepository implements ProductRepository {
 
 
     public Producto save(Producto producto){
-
+        String sql = "INSERT INTO productos (id_producto, nombre, id_categoria, codigo_barras, precio_venta, cantidad_stock, estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        Object[] params = {
+                producto.getIdproducto(),
+                producto.getNombre(),
+                producto.getIdcategoria(),
+                producto.getCodigoBarras(),
+                producto.getPrecioVenta(),
+                producto.getCantidadStock(),
+                producto.getEstado()
+        };
+        jdbcTemplate.update(sql,params);
+        return producto;
     }
 
 

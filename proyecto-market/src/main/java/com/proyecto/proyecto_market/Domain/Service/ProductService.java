@@ -37,11 +37,10 @@ public class ProductService {
     public Product save(Product product){
 
          try {
-             System.out.println("Antes del mapping bien");
+
              Producto p = mapper.toProducto(product);
              System.out.println(p.getCantidadStock());
              System.out.println(p.getIdproducto());
-             System.out.println("Despues del mapping bien");
              productoRepository.save(p); //el problema es este save
              System.out.println("Se guardó exitosamente");
 
